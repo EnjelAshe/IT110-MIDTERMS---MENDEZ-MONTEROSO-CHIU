@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Random Quote Generator</h1>
+    <a href="index.html">&larr; Back to Portfolio</a>
+  </header>
+
+  <main>
+    <section class="quote-card" aria-live="polite">
+      <p id="quote-text"></p>
+      <p id="quote-author"></p>
+      <p id="error-msg" class="error" role="alert"></p>
+      <p id="status-msg" class="status"></p>
+
+      <div class="actions">
+        <button id="new-quote-btn" type="button">New Quote</button>
+        <button id="copy-btn" type="button" disabled>Copy</button>
+        <button id="fav-btn" type="button" disabled>Save to Favorites</button>
+      </div>
+    </section>
+
+    <section class="favorites">
+      <h2>Favorite Quotes</h2>
+      <ul id="fav-list"></ul>
+      <button id="clear-favs-btn" type="button">Clear All</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
