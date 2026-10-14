@@ -546,3 +546,55 @@ main button:disabled {
     transform: none;
   }
     }
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root) {
+        animation: 0.3s ease both pageOut;
+    }
+
+    ::view-transition-new(root) {
+        animation: 0.5s ease both pageIn;
+    }
+
+    #quote-text.quote-in,
+    #quote-author.quote-in {
+        animation-name: quoteIn;
+        animation-duration: 0.55s;
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+        animation-timeline: auto;
+        animation-range: normal;
+    }
+}
+
+@keyframes pageOut {
+    to {
+        opacity: 0;
+        transform: scale(0.98) translateY(-10px);
+        filter: blur(6px);
+    }
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(6px);
+    }
+}
+
+@keyframes quoteIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
+}
