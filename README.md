@@ -19,8 +19,8 @@ A single-page web app that fetches and displays a random quote.
 ## API Used
 
 **DummyJSON Quotes**
-Documentation: https://dummyjson.com/docs/quotes
-<br> Endpoint: `https://dummyjson.com/quotes/random`
+Documentation: https://dummyjson.com/docs/quotes <br>
+Github: https://github.com/Ovi/DummyJSON
 
 ## How to Run
 
