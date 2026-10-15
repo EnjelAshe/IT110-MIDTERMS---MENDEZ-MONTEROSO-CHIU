@@ -1,4 +1,4 @@
-# Random Quote Generator
+# Random Quote Generator | SQUOTIFY
 
 A single-page web app that fetches and displays a random quote.
 
