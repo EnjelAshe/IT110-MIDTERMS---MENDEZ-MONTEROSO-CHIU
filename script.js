@@ -1,5 +1,3 @@
-// API: DummyJSON Quotes (https://dummyjson.com/docs/quotes)
-
 const API_URL = "https://dummyjson.com/quotes/random";
 const STORAGE_KEY = "favoriteQuotes";
 
@@ -13,11 +11,10 @@ const favBtn = document.querySelector("#fav-btn");
 const favList = document.querySelector("#fav-list");
 const clearFavsBtn = document.querySelector("#clear-favs-btn");
 
-let currentQuote = null;          // id, quote, author
-let favorites = loadFavorites();  // array of saved quotes
+let currentQuote = null;          
+let favorites = loadFavorites();
 let statusTimer = null;
 
-// get quote from the api
 async function getQuote() {
   clearMessages();
   setLoading(true);
@@ -51,7 +48,6 @@ async function getQuote() {
   }
 }
 
-// show loading state while the request is running
 function setLoading(isLoading) {
   newQuoteBtn.disabled = isLoading;
   newQuoteBtn.textContent = isLoading ? "Loading..." : "New Quote";
@@ -61,7 +57,6 @@ function setLoading(isLoading) {
   }
 }
 
-// messages
 function clearMessages() {
   errorMsg.textContent = "";
   statusMsg.textContent = "";
@@ -75,7 +70,6 @@ function showStatus(message) {
   }, 2000);
 }
 
-// copy to clipboard function
 async function copyQuote() {
   if (!currentQuote) return;
   const text = `"${currentQuote.quote}" — ${currentQuote.author}`;
@@ -89,7 +83,6 @@ async function copyQuote() {
   }
 }
 
-// favorites quotes saved to your local storage
 function loadFavorites() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -135,7 +128,6 @@ function clearFavorites() {
   renderFavorites();
 }
 
-// rebuilds the favorites list in the DOM*
 function renderFavorites() {
   favList.innerHTML = "";
   clearFavsBtn.disabled = favorites.length === 0;
@@ -166,19 +158,16 @@ function renderFavorites() {
   });
 }
 
-//event listeners
 newQuoteBtn.addEventListener("click", getQuote);
 copyBtn.addEventListener("click", copyQuote);
 favBtn.addEventListener("click", addFavorite);
 clearFavsBtn.addEventListener("click", clearFavorites);
 
-// one listener handles every "remove" button in the list
 favList.addEventListener("click", (event) => {
   if (event.target.classList.contains("remove-btn")) {
     removeFavorite(event.target.dataset.id);
   }
 });
 
-// start
 renderFavorites();
 getQuote();
